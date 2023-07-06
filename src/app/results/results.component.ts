@@ -44,6 +44,35 @@ export class ResultsComponent {
     }, 1000);
   }
   
+  modifyJoke(index: number) {
+    const modifiedJoke = prompt('Ingrese el nuevo valor para el chiste:');
+    if (modifiedJoke) {
+      if (modifiedJoke.includes('Chuck Norris')) {
+        this.jokes.splice(index, 1, modifiedJoke);
+      } else {
+        alert('El nombre de Chuck Norris debe estar presente en el chiste.');
+      }
+    }
+  }
+  
+  
+  deleteJoke(index: number) {
+    const confirmation = confirm('¿Estás seguro de que deseas eliminar este chiste?');
+    if (confirmation) {
+      this.jokes.splice(index, 1);
+    }
+  }
+
+  createJoke() {
+    const newJoke = prompt('Ingrese el nuevo chiste:');
+    if (newJoke) {
+      if (newJoke.includes('Chuck Norris')) {
+        this.jokes.unshift(newJoke);
+      } else {
+        alert('El nombre de Chuck Norris debe estar presente en el chiste.');
+      }
+    }
+  }
   
   
   
