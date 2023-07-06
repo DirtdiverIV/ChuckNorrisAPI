@@ -27,18 +27,25 @@ export class ResultsComponent {
       });
   }
 
+  startIndex: number = 0;
+
   showJokes() {
-    const startIndex = 100;
-    const endIndex = 200;
-  
     this.getChuckNorrisJokes();
-    this.jokes = [];
   
     setTimeout(() => {
+      const startIndex = 100;
+      const endIndex = 200;
+  
       if (this.jokes.length >= endIndex) {
         this.jokes = this.jokes.slice(startIndex, endIndex);
+      } else {
+        this.jokes = [];
       }
     }, 1000);
   }
+  
+  
+  
+  
 }
 

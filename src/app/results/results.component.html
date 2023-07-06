@@ -2,7 +2,19 @@
 <button (click)="showJokes()">Mostrar Chistes</button>
 <div *ngIf="jokes.length > 0">
   <h3>Chistes:</h3>
-  <ul>
-    <li *ngFor="let joke of jokes">{{ joke }}</li>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let joke of jokes; let i = index">
+        <td>{{ i + startIndex + 1 }}</td>
+        <td>{{ joke }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
