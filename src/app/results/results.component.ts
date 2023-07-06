@@ -12,7 +12,8 @@ interface ChuckNorrisJoke {
 })
 export class ResultsComponent implements OnInit {
   jokes: string[] = [];
-  startIndex: number = 100;
+  startIndex: number = 1;
+  loading: boolean = true; // Agrega la propiedad loading
 
   constructor(private http: HttpClient) { }
 
@@ -29,6 +30,7 @@ export class ResultsComponent implements OnInit {
         const jokes: ChuckNorrisJoke[] = response.result;
         this.jokes = jokes.map(joke => joke.value);
         console.log(this.jokes);
+        this.loading = false; // Desactivar la pantalla de carga cuando se completan los datos
       });
   }
 
@@ -36,12 +38,13 @@ export class ResultsComponent implements OnInit {
     this.getChuckNorrisJokes();
   
     setTimeout(() => {
-      const endIndex = this.startIndex + 100;
+      const startIndex = 1;
+      const endIndex = startIndex + 100;
   
       if (this.jokes.length >= endIndex) {
-        this.jokes = this.jokes.slice(this.startIndex, endIndex);
+        this.jokes = this.jokes.slice(startIndex - 1, endIndex - 1);
       } else {
-        this.jokes = this.jokes.slice(this.startIndex, this.jokes.length);
+        this.jokes = this.jokes.slice(startIndex - 1, this.jokes.length);
       }
     }, 1000);
   }
