@@ -1,29 +1,60 @@
-<p>results works!</p>
+<div><nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        Bootstrap
+      </a>
+    </div>
+    
+  </nav>
+</div>
 
-<div *ngIf="loading">
-    <p>Cargando...</p>
-  </div>
 
-  <button (click)="createJoke()">Crear Chiste</button>
-<div *ngIf="jokes.length > 0">
-  <h3>Chistes:</h3>
-  <table *ngIf="!loading">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Resultado</th>
-        <th>Modificar</th>
-        <th>Eliminar</th>
+<div class="createDiv">
+        <button (click)="createJoke()" type="button" class="btn btn-primary btn-lg">Crear Chiste</button>
+    </div>
+
+    <div *ngIf="loading" class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+          </div>
+      </div>
+
+
+
+
+<div class="loadingDiv">
+    <div *ngIf="loading">
+        <p>Cargando las UZIS...</p>
+      </div>
+</div>
+<div class="tableDiv">
+<div *ngIf="jokes.length > 0" class="tableDiv2">
+  <table *ngIf="!loading" class="table">
+    <thead class="table-danger">
+      <tr class="table-danger">
+        <th class="table-danger">ID</th>
+        <th class="table-danger">Resultado</th>
+        <th class="table-danger">Modificar</th>
+        <th class="table-danger">Eliminar</th>
       </tr>
     </thead>
     <tbody>
         <tr *ngFor="let joke of jokes; let i = index">
             <td>{{ startIndex + i }}</td>
             <td>{{ joke }}</td>
-            <td><button (click)="modifyJoke(i)">Modificar</button></td>
-            <td><button (click)="deleteJoke(i)">Eliminar</button></td>
+            <td><button (click)="modifyJoke(i)" type="button" class="btn btn-outline-warning">Modificar</button></td>
+            <td><button (click)="deleteJoke(i)" type="button" class="btn btn-outline-danger">Eliminar</button></td>
           </tr>
     </tbody>
   </table>
 </div>
+</div>
+<nav class="navbar bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
+      </a>
+    </div>
+  </nav>
 
