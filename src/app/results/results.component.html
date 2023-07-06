@@ -1,1 +1,8 @@
 <p>results works!</p>
+<button (click)="showJokes()">Mostrar Chistes</button>
+<div *ngIf="jokes.length > 0">
+  <h3>Chistes:</h3>
+  <ul>
+    <li *ngFor="let joke of jokes">{{ joke }}</li>
+  </ul>
+</div>
