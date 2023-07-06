@@ -1,5 +1,4 @@
 <p>results works!</p>
-<button (click)="showJokes()">Mostrar Chistes</button>
 <button (click)="createJoke()">Crear Chiste</button>
 <div *ngIf="jokes.length > 0">
   <h3>Chistes:</h3>
@@ -14,7 +13,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let joke of jokes; let i = index">
-            <td>{{ i + startIndex + 1 }}</td>
+            <td>{{ i + 1 }}</td>
             <td>{{ joke }}</td>
             <td><button (click)="modifyJoke(i)">Modificar</button></td>
             <td><button (click)="deleteJoke(i)">Eliminar</button></td>

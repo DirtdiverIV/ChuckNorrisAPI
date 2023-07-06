@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 interface ChuckNorrisJoke {
@@ -10,10 +10,15 @@ interface ChuckNorrisJoke {
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
-export class ResultsComponent {
+export class ResultsComponent implements OnInit {
   jokes: string[] = [];
+  startIndex: number = 100;
 
   constructor(private http: HttpClient) { }
+
+  ngOnInit() {
+    this.showJokes();
+  }
 
   getChuckNorrisJokes() {
     const searchTerm = 'Chuck Norris';
@@ -27,23 +32,20 @@ export class ResultsComponent {
       });
   }
 
-  startIndex: number = 0;
-
   showJokes() {
     this.getChuckNorrisJokes();
   
     setTimeout(() => {
-      const startIndex = 100;
-      const endIndex = 200;
+      const endIndex = this.startIndex + 100;
   
       if (this.jokes.length >= endIndex) {
-        this.jokes = this.jokes.slice(startIndex, endIndex);
+        this.jokes = this.jokes.slice(this.startIndex, endIndex);
       } else {
-        this.jokes = [];
+        this.jokes = this.jokes.slice(this.startIndex, this.jokes.length);
       }
     }, 1000);
   }
-  
+
   modifyJoke(index: number) {
     const modifiedJoke = prompt('Ingrese el nuevo valor para el chiste:');
     if (modifiedJoke) {
@@ -54,8 +56,7 @@ export class ResultsComponent {
       }
     }
   }
-  
-  
+
   deleteJoke(index: number) {
     const confirmation = confirm('¿Estás seguro de que deseas eliminar este chiste?');
     if (confirmation) {
@@ -73,8 +74,6 @@ export class ResultsComponent {
       }
     }
   }
-  
-  
-  
 }
+
 
