@@ -9,7 +9,7 @@
 
 
 <div class="createDiv">
-        <button (click)="createJoke()" type="button" class="btn btn-primary btn-lg">Crear Chiste</button>
+        <button (click)="createJoke()" type="button" class="btn btn-primary btn-lg">Create a Joke</button>
     </div>
 
     <div *ngIf="loading" class="d-flex justify-content-center">
@@ -41,8 +41,8 @@
         <tr *ngFor="let joke of jokes; let i = index">
             <td>{{ startIndex + i }}</td>
             <td>{{ joke }}</td>
-            <td><button (click)="modifyJoke(i)" type="button" class="btn btn-outline-warning"><img class="icons" src="/assets/edit.png"></button></td>
-            <td><button (click)="deleteJoke(i)" type="button" class="btn btn-outline-danger"><img class="icons" src="/assets/delete.png"></button></td>
+            <td><button (click)="modifyJoke(i)" type="button" class="btn btn-outline-warning">Edit</button></td>
+            <td><button (click)="deleteJoke(i)" type="button" class="btn btn-outline-danger">Delete</button></td>
           </tr>
     </tbody>
   </table>
