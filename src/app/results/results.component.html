@@ -1,23 +1,11 @@
-<div><nav class="navbar bg-body-tertiary">
+<nav class="navbar navbar-custom">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-        Bootstrap
+        <img src="./assets/logo.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        Chuck Norris Jokes
       </a>
     </div>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-    
   </nav>
-</div>
 
 
 <div class="createDiv">
@@ -44,17 +32,17 @@
     <thead class="table-danger">
       <tr class="table-danger">
         <th class="table-danger">ID</th>
-        <th class="table-danger">Resultado</th>
-        <th class="table-danger">Modificar</th>
-        <th class="table-danger">Eliminar</th>
+        <th class="table-danger">Joke</th>
+        <th class="table-danger">Edit</th>
+        <th class="table-danger">Delete</th>
       </tr>
     </thead>
     <tbody>
         <tr *ngFor="let joke of jokes; let i = index">
             <td>{{ startIndex + i }}</td>
             <td>{{ joke }}</td>
-            <td><button (click)="modifyJoke(i)" type="button" class="btn btn-outline-warning">Modificar</button></td>
-            <td><button (click)="deleteJoke(i)" type="button" class="btn btn-outline-danger">Eliminar</button></td>
+            <td><button (click)="modifyJoke(i)" type="button" class="btn btn-outline-warning"><img class="icons" src="/assets/edit.png"></button></td>
+            <td><button (click)="deleteJoke(i)" type="button" class="btn btn-outline-danger"><img class="icons" src="/assets/delete.png"></button></td>
           </tr>
     </tbody>
   </table>

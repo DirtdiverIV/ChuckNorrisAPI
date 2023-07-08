@@ -20,6 +20,40 @@
 }
 
 td {
+    color: black;
+    /*text-shadow: 5px 5px 5px black;*/
+    /*font-weight: bold;*/
     padding: 1em;
+    background-color: rgba(249, 234, 172, 0.9) ;
 }
 
+th {
+    background-color:  #fbdb44
+}
+
+.btn-outline-warning {
+    background-color: rgb(219, 219, 120);
+    color: black;
+    border: 2px solid black;
+}
+
+.btn-outline-danger {
+    background-color: rgb(219, 120, 120);
+    color: black;
+    border: 2px solid black;
+}
+
+.icons {
+    width: 20px;
+    height: 20px;
+}
+
+.navbar-custom {
+    background-color: #fbdb44;
+    border: 2px solid #FFD60A;
+    border-color: #FFD60A;}
+
+.btn-lg {
+    background-color: #72c76a;
+    border: 0px;
+}
